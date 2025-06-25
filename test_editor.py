@@ -7,5 +7,10 @@ class TestNotepadGUI(unittest.TestCase):
         window = create_main_window()
         self.assertEqual(window.title(), "My Notepad")
 
+    def test_text_area_exists(self):
+        window = create_main_window()
+        text_widgets = [child for child in window.winfo_children() if instance(child, tk.Text)]
+        self.assertEqual(len(text_widgets), 1)
+        
 if __name__ == "__main__":
     unittest.main()
