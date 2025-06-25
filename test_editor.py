@@ -11,6 +11,11 @@ class TestNotepadGUI(unittest.TestCase):
         window = create_main_window()
         text_widgets = [child for child in window.winfo_children() if isinstance(child, tk.Text)]
         self.assertEqual(len(text_widgets), 1)
+
+    def test_menu_bar_exists(self):
+        window = create_main_window()
+        menu = window["menu"]
+        self.assertIsNotNone(menu)
         
 if __name__ == "__main__":
     unittest.main()
